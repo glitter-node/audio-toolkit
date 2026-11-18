@@ -1,0 +1,183 @@
+{
+  "app": {
+    "description": "セルフホスト型の音声編集、結合、変換。",
+    "theme": "テーマ",
+    "language": "言語",
+    "title": "Audio Toolkit"
+  },
+  "accessibility": {
+    "backToTop": "ページ上部へ移動"
+  },
+  "theme": {
+    "system": "システム",
+    "light": "ライト",
+    "dark": "ダーク"
+  },
+  "language": {
+    "ko": "韓国語",
+    "en": "英語",
+    "ja": "日本語",
+    "zhCN": "簡体字中国語"
+  },
+  "upload": {
+    "audioFile": "音声ファイル",
+    "submit": "アップロードして解析",
+    "analyzing": "音声をアップロードして解析中...",
+    "uploading": "音声をアップロード中...",
+    "inspecting": "音声を解析中...",
+    "ready": "音声の準備ができました。波形をドラッグして範囲を選択してください。",
+    "failed": "アップロードに失敗しました。",
+    "inspectionFailed": "解析に失敗しました。",
+    "audioFailed": "音声処理に失敗しました。",
+    "mergeUploading": "結合する音声ファイルをアップロード中...",
+    "mergeItem": "音声 {total} 件中 {index} 件をアップロード中...",
+    "audioUploadFailed": "音声のアップロードに失敗しました。",
+    "heading": "音声のアップロード"
+  },
+  "waveform": {
+    "editor": "波形エディター",
+    "tools": "波形編集ツール",
+    "canvas": "時間目盛り、再生位置、選択範囲を含む音声波形",
+    "view": "表示位置",
+    "autoScroll": "自動スクロール",
+    "playhead": "再生位置",
+    "zoomIn": "拡大",
+    "zoomOut": "縮小",
+    "fit": "全体を表示",
+    "tooLarge": "ファイルがブラウザーの波形上限64 MBを超えています。小さいファイルかAPIを使用してください。",
+    "reading": "音声ファイルを読み込み中...",
+    "decoding": "音声をデコード中... 時間がかかる場合があります。",
+    "generating": "波形を生成中..."
+  },
+  "editing": {
+    "undo": "元に戻す",
+    "redo": "やり直す",
+    "start": "開始（秒）",
+    "end": "終了（秒）",
+    "step": "刻み幅",
+    "boundaryTools": "選択範囲の境界を微調整",
+    "startBack": "開始 −",
+    "startForward": "開始 +",
+    "endBack": "終了 −",
+    "endForward": "終了 +",
+    "instructions": "青い境界ハンドルをドラッグして選択範囲を調整します。ドラッグで範囲を選択し、Shift+クリックで終点を設定します。目盛りをクリックすると移動します。刻み幅ボタン、ループ、自動スクロールも使用できます。",
+    "outputFormat": "出力形式",
+    "trim": "選択範囲を切り出す",
+    "remove": "選択範囲を削除",
+    "crossfade": "クロスフェード（ms）",
+    "off": "オフ",
+    "convert": "音声全体を変換",
+    "restored": "編集状態を復元しました。",
+    "selectRange": "長さが0より大きい範囲を選択してください。",
+    "selectRemoval": "音声全体より短い、長さが0より大きい範囲を選択してください。"
+  },
+  "playback": {
+    "playSelection": "選択範囲を再生",
+    "loop": "選択範囲をループ",
+    "unavailable": "選択した音声を再生できません。",
+    "failed": "再生できません。"
+  },
+  "effects": {
+    "heading": "音量とフェード",
+    "volume": "音量（dB）",
+    "fadeIn": "フェードイン（秒）",
+    "fadeOut": "フェードアウト（秒）",
+    "apply": "エフェクトを適用",
+    "invalid": "音量またはフェードの設定が無効です。"
+  },
+  "merge": {
+    "heading": "音声を結合",
+    "instructions": "現在の音声が先頭です。結合順に最大9個のファイルを追加してください。",
+    "additional": "追加の音声ファイル",
+    "submit": "ファイルを結合",
+    "selectFiles": "追加の音声ファイルを1～9個選択してください。",
+    "failed": "音声の結合に失敗しました。"
+  },
+  "jobs": {
+    "preparing": "音声を準備中...",
+    "cancel": "処理をキャンセル",
+    "queued": "待機中",
+    "running": "実行中",
+    "completed": "完了",
+    "cancelled": "キャンセル済み",
+    "failed": "失敗",
+    "processing": "音声を処理中",
+    "submitting": "音声ジョブを送信中...",
+    "startFailed": "ジョブを開始できません。",
+    "completeNotice": "音声処理が完了しました。ダウンロード前に結果を確認してください。",
+    "statusUnavailable": "ジョブの状態を取得できません。",
+    "connectionInterrupted": "接続が中断されました。再試行前にジョブの状態を確認してください。",
+    "timeout": "音声処理がタイムアウトしました。",
+    "encoderUnavailable": "要求された音声エンコーダーを利用できません。",
+    "processingFailed": "音声処理に失敗しました。",
+    "codecFailed": "音声処理に失敗しました。入力コーデックと出力形式を確認してください。",
+    "operationConvert": "変換",
+    "operationTrim": "切り出し",
+    "operationRemove": "削除",
+    "operationEffects": "エフェクト",
+    "operationMerge": "結合"
+  },
+  "results": {
+    "heading": "処理済み音声のプレビュー",
+    "download": "処理済み音声をダウンロード",
+    "edit": "この結果を編集",
+    "wait": "現在のジョブが完了するまでお待ちください。",
+    "invalidReference": "結果の参照が無効です。",
+    "loading": "結果をエディターに読み込み中...",
+    "preparing": "編集用の結果を準備中...",
+    "reuseFailed": "結果を再利用できません。",
+    "unavailable": "結果の音声を利用できません。",
+    "loaded": "結果を読み込みました。編集を続けられます。"
+  },
+  "history": {
+    "heading": "最近の結果",
+    "instructions": "結果はファイルの期限切れまで利用できます。履歴はこのブラウザータブに保存されます。",
+    "clear": "履歴を消去",
+    "preview": "プレビュー",
+    "edit": "編集",
+    "unavailable": "履歴ストレージを利用できません。"
+  },
+  "shortcuts": {
+    "help": "ショートカット: Space 再生/一時停止、P 選択再生、L ループ、矢印キー 移動、Shift+矢印キー 微調整、[ / ] 開始調整、Shift+[ / ] 終了調整、+ / - 拡大縮小、Ctrl+Z 元に戻す、Ctrl+Y やり直す、? ヘルプ。"
+  },
+  "errors": {
+    "unsupportedExtension": "対応していない音声拡張子です。",
+    "uploadLimit": "ファイルがアップロード上限を超えています。",
+    "invalidAudio": "対応していない、または無効な音声ファイルです。",
+    "expired": "結果が見つからないか、期限切れです。",
+    "queueFull": "音声ジョブの待機列がいっぱいです。",
+    "fileNotFound": "ファイルが見つかりません。",
+    "invalidFileId": "ファイル識別子が無効です。",
+    "invalidOutputId": "出力識別子が無効です。",
+    "invalidOutputFormat": "出力形式が無効です。",
+    "outputNotFound": "出力が見つかりません。",
+    "editSize": "結果が編集サイズの上限を超えています。",
+    "trimRange": "切り出し範囲が無効です。",
+    "trimExceeds": "切り出し範囲が音声の長さを超えています。",
+    "duration": "音声の長さを取得できません。",
+    "fades": "フェードの合計が音声の長さを超えています。",
+    "removal": "削除後に音声が残る必要があります。",
+    "inspection": "音声の解析に失敗しました。",
+    "conversion": "音声の変換に失敗しました。",
+    "trimming": "音声の切り出しに失敗しました。",
+    "effects": "音声エフェクトの処理に失敗しました。",
+    "merging": "音声の結合に失敗しました。",
+    "jobNotFound": "ジョブが見つかりません。"
+  },
+  "metadata": {
+    "heading": "ファイル情報",
+    "format": "形式",
+    "duration": "長さ",
+    "bitrate": "ビットレート",
+    "sampleRate": "サンプルレート",
+    "channels": "チャンネル",
+    "fileSize": "ファイルサイズ",
+    "rawDetails": "技術情報（JSON）",
+    "unknown": "利用できません",
+    "seconds": "{value} 秒",
+    "kbps": "{value} kb/s",
+    "hz": "{value} Hz",
+    "channelCount": "{value} チャンネル",
+    "megabytes": "{value} MB"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "app": {
+    "description": "自托管音频编辑、合并和转换。",
+    "theme": "主题",
+    "language": "语言",
+    "title": "Audio Toolkit"
+  },
+  "accessibility": {
+    "backToTop": "返回顶部"
+  },
+  "theme": {
+    "system": "跟随系统",
+    "light": "浅色",
+    "dark": "深色"
+  },
+  "language": {
+    "ko": "韩语",
+    "en": "英语",
+    "ja": "日语",
+    "zhCN": "简体中文"
+  },
+  "upload": {
+    "audioFile": "音频文件",
+    "submit": "上传并检查",
+    "analyzing": "正在上传并分析音频...",
+    "uploading": "正在上传音频...",
+    "inspecting": "正在检查音频...",
+    "ready": "音频已就绪。拖动波形选择范围。",
+    "failed": "上传失败。",
+    "inspectionFailed": "检查失败。",
+    "audioFailed": "音频处理失败。",
+    "mergeUploading": "正在上传待合并的音频文件...",
+    "mergeItem": "正在上传第 {index}/{total} 个音频...",
+    "audioUploadFailed": "音频上传失败。",
+    "heading": "上传音频"
+  },
+  "waveform": {
+    "editor": "波形编辑器",
+    "tools": "波形编辑工具",
+    "canvas": "带时间刻度、播放位置和选区的音频波形",
+    "view": "视图位置",
+    "autoScroll": "自动滚动",
+    "playhead": "播放位置",
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "fit": "适合全部",
+    "tooLarge": "文件超过浏览器波形的 64 MB 限制。请使用较小文件或 API。",
+    "reading": "正在读取音频文件...",
+    "decoding": "正在解码音频... 可能需要一些时间。",
+    "generating": "正在生成波形..."
+  },
+  "editing": {
+    "undo": "撤销",
+    "redo": "重做",
+    "start": "开始（秒）",
+    "end": "结束（秒）",
+    "step": "步长",
+    "boundaryTools": "微调选区边界",
+    "startBack": "开始 −",
+    "startForward": "开始 +",
+    "endBack": "结束 −",
+    "endForward": "结束 +",
+    "instructions": "拖动蓝色边界手柄调整选区。拖动以选择范围，Shift+单击设置终点。单击刻度尺跳转。可用步长按钮调整边界，并使用循环和自动滚动。",
+    "outputFormat": "输出格式",
+    "trim": "裁剪选区",
+    "remove": "删除选区",
+    "crossfade": "交叉淡化（毫秒）",
+    "off": "关闭",
+    "convert": "转换整段音频",
+    "restored": "已恢复编辑器状态。",
+    "selectRange": "请选择非空音频范围。",
+    "selectRemoval": "请选择短于整段音频的非空范围。"
+  },
+  "playback": {
+    "playSelection": "播放选区",
+    "loop": "循环播放选区",
+    "unavailable": "无法播放所选音频。",
+    "failed": "无法播放。"
+  },
+  "effects": {
+    "heading": "音量和淡化",
+    "volume": "音量（dB）",
+    "fadeIn": "淡入（秒）",
+    "fadeOut": "淡出（秒）",
+    "apply": "应用效果",
+    "invalid": "音量或淡化设置无效。"
+  },
+  "merge": {
+    "heading": "合并音频",
+    "instructions": "当前音频排在首位。按合并顺序最多添加9个文件。",
+    "additional": "其他音频文件",
+    "submit": "合并文件",
+    "selectFiles": "请选择 1 至 9 个其他音频文件。",
+    "failed": "音频合并失败。"
+  },
+  "jobs": {
+    "preparing": "正在准备音频...",
+    "cancel": "取消处理",
+    "queued": "排队中",
+    "running": "运行中",
+    "completed": "已完成",
+    "cancelled": "已取消",
+    "failed": "失败",
+    "processing": "正在处理音频",
+    "submitting": "正在提交音频任务...",
+    "startFailed": "无法启动任务。",
+    "completeNotice": "音频处理完成。下载前请预览结果。",
+    "statusUnavailable": "无法获取任务状态。",
+    "connectionInterrupted": "连接中断。重试前请检查任务状态。",
+    "timeout": "音频处理超时。",
+    "encoderUnavailable": "请求的音频编码器不可用。",
+    "processingFailed": "音频处理失败。",
+    "codecFailed": "音频处理失败。请检查输入编解码器和输出格式。",
+    "operationConvert": "转换",
+    "operationTrim": "裁剪",
+    "operationRemove": "删除",
+    "operationEffects": "效果",
+    "operationMerge": "合并"
+  },
+  "results": {
+    "heading": "预览处理后的音频",
+    "download": "下载处理后的音频",
+    "edit": "编辑此结果",
+    "wait": "请等待当前任务完成。",
+    "invalidReference": "结果引用无效。",
+    "loading": "正在将结果载入编辑器...",
+    "preparing": "正在准备编辑结果...",
+    "reuseFailed": "无法重新使用结果。",
+    "unavailable": "结果音频不可用。",
+    "loaded": "结果已载入。可以继续编辑。"
+  },
+  "history": {
+    "heading": "最近的结果",
+    "instructions": "文件过期前可使用结果。历史记录保存在当前浏览器标签页。",
+    "clear": "清除历史",
+    "preview": "预览",
+    "edit": "编辑",
+    "unavailable": "无法使用历史记录存储。"
+  },
+  "shortcuts": {
+    "help": "快捷键：Space 播放/暂停，P 播放选区，L 循环，方向键跳转，Shift+方向键微调，[ / ] 调整起点，Shift+[ / ] 调整终点，+ / - 缩放，Ctrl+Z 撤销，Ctrl+Y 重做，? 帮助。"
+  },
+  "errors": {
+    "unsupportedExtension": "不支持的音频扩展名。",
+    "uploadLimit": "文件超过上传限制。",
+    "invalidAudio": "不支持或无效的音频文件。",
+    "expired": "结果不存在或已过期。",
+    "queueFull": "音频任务队列已满。",
+    "fileNotFound": "未找到文件。",
+    "invalidFileId": "文件标识符无效。",
+    "invalidOutputId": "输出标识符无效。",
+    "invalidOutputFormat": "输出格式无效。",
+    "outputNotFound": "未找到输出文件。",
+    "editSize": "结果超过编辑大小限制。",
+    "trimRange": "裁剪范围无效。",
+    "trimExceeds": "裁剪范围超过音频时长。",
+    "duration": "无法确定音频时长。",
+    "fades": "淡化总时长超过音频时长。",
+    "removal": "删除后必须保留部分音频。",
+    "inspection": "音频检查失败。",
+    "conversion": "音频转换失败。",
+    "trimming": "音频裁剪失败。",
+    "effects": "音频效果处理失败。",
+    "merging": "音频合并失败。",
+    "jobNotFound": "未找到任务。"
+  },
+  "metadata": {
+    "heading": "文件信息",
+    "format": "格式",
+    "duration": "时长",
+    "bitrate": "比特率",
+    "sampleRate": "采样率",
+    "channels": "声道",
+    "fileSize": "文件大小",
+    "rawDetails": "技术详情（JSON）",
+    "unknown": "不可用",
+    "seconds": "{value} 秒",
+    "kbps": "{value} kb/s",
+    "hz": "{value} Hz",
+    "channelCount": "{value} 声道",
+    "megabytes": "{value} MB"
+  }
+}

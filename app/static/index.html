@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audio Toolkit</title>
+  <meta name="description" content="Self-hosted audio editing, merging and conversion.">
+  <meta name="theme-color" content="#0F172A">
+  <meta property="og:title" content="Audio Toolkit">
+  <meta property="og:description" content="Self-hosted audio editing, merging and conversion.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <script src="/static/theme-init.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/i18n.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="app-header">
+      <div>
+      <h1>Audio Toolkit</h1>
+      <p><span data-i18n="app.description">Self-hosted audio editing, merging and conversion.</span></p>
+      </div>
+      <div class="preferences">
+        <div class="preference-control">
+          <label for="theme-preference" data-i18n="app.theme">Theme</label>
+          <select id="theme-preference" class="preference-select"><option value="system" data-i18n="theme.system">System</option><option value="light" data-i18n="theme.light">Light</option><option value="dark" data-i18n="theme.dark">Dark</option></select>
+        </div>
+        <div class="preference-control">
+          <label for="locale-preference" data-i18n="app.language">Language</label>
+          <select id="locale-preference" class="preference-select"><option value="ko" data-i18n="language.ko">Korean</option><option value="en" data-i18n="language.en">English</option><option value="ja" data-i18n="language.ja">Japanese</option><option value="zh-CN" data-i18n="language.zhCN">Simplified Chinese</option></select>
+        </div>
+      </div>
+    </header>
+    <section class="panel upload-panel" aria-labelledby="upload-heading">
+      <h2 id="upload-heading" data-i18n="upload.heading">Audio upload</h2>
+    <form id="upload-form">
+      <label for="audio"><span data-i18n="upload.audioFile">Audio file</span></label>
+      <input id="audio" type="file" accept="audio/*" required>
+      <button class="button-primary" type="submit"><span data-i18n="upload.submit">Upload and inspect</span></button>
+    </form>
+    </section>
+    <section id="metadata-panel" class="panel metadata-panel" aria-labelledby="metadata-heading" hidden>
+      <h2 id="metadata-heading" data-i18n="metadata.heading">File information</h2>
+      <dl class="metadata-grid">
+        <div><dt data-i18n="metadata.format">Format</dt><dd id="metadata-format">—</dd></div>
+        <div><dt data-i18n="metadata.duration">Duration</dt><dd id="metadata-duration">—</dd></div>
+        <div><dt data-i18n="metadata.bitrate">Bitrate</dt><dd id="metadata-bitrate">—</dd></div>
+        <div><dt data-i18n="metadata.sampleRate">Sample rate</dt><dd id="metadata-sample-rate">—</dd></div>
+        <div><dt data-i18n="metadata.channels">Channels</dt><dd id="metadata-channels">—</dd></div>
+        <div><dt data-i18n="metadata.fileSize">File size</dt><dd id="metadata-file-size">—</dd></div>
+      </dl>
+      <details class="metadata-details"><summary data-i18n="metadata.rawDetails">Technical details (JSON)</summary><pre id="details"></pre></details>
+    </section>
+    <section id="editor" class="panel editor-panel" hidden>
+      <h2><span data-i18n="waveform.editor">Waveform editor</span></h2>
+      <p id="file-label"></p>
+      <div class="waveform-tools" role="group" aria-label="Waveform editing tools" data-i18n-aria-label="waveform.tools">
+        <div class="tool-group">
+        <button id="undo" type="button" disabled><span data-i18n="editing.undo">Undo</span></button>
+        <button id="redo" type="button" disabled><span data-i18n="editing.redo">Redo</span></button>
+        </div>
+        <div class="tool-group">
+        <button id="zoom-out" type="button"><span data-i18n="waveform.zoomOut">Zoom out</span></button>
+        <button id="zoom-in" type="button"><span data-i18n="waveform.zoomIn">Zoom in</span></button>
+        <button id="zoom-reset" type="button"><span data-i18n="waveform.fit">Fit all</span></button>
+        </div>
+        <div class="tool-group tool-group-view">
+        <label for="view-position"><span data-i18n="waveform.view">View position</span></label>
+        <input id="view-position" type="range" min="0" max="1000" value="0" aria-label="Waveform view position" data-i18n-aria-label="waveform.view">
+        <span id="zoom-level" aria-live="polite">1x</span>
+        <label class="toggle-tool"><input id="auto-scroll" type="checkbox" checked> <span data-i18n="waveform.autoScroll">Auto-scroll</span></label>
+        </div>
+      </div>
+      <div class="waveform-workspace">
+      <canvas tabindex="0" id="waveform" height="180" aria-label="Audio waveform with time ruler, playhead and selected trim range" data-i18n-aria-label="waveform.canvas"></canvas>
+      <div class="playhead-status" aria-live="off"><span data-i18n="waveform.playhead">Playhead</span> <output id="playhead-time">00:00.00</output></div>
+      <div class="time-labels"><span id="position">00:00</span><span id="duration">00:00</span></div>
+      </div>
+      <audio id="preview" controls preload="metadata"></audio>
+      <div class="controls selection-controls">
+        <label for="start"><span data-i18n="editing.start">Start (seconds)</span></label>
+        <input id="start" type="number" min="0" step="0.01" value="0">
+        <label for="end"><span data-i18n="editing.end">End (seconds)</span></label>
+        <input id="end" type="number" min="0" step="0.01" value="0">
+        <button id="play-selection" type="button"><span data-i18n="playback.playSelection">Play selection</span></button>
+        <label class="toggle-tool"><input id="loop-selection" type="checkbox"> <span data-i18n="playback.loop">Loop selection</span></label>
+      </div>
+      <div class="boundary-tools" role="group" aria-label="Fine adjustment of selection boundaries" data-i18n-aria-label="editing.boundaryTools">
+        <label for="nudge-step"><span data-i18n="editing.step">Step</span></label>
+        <select id="nudge-step"><option value="0.01">0.01 s</option><option value="0.1" selected>0.1 s</option><option value="1">1 s</option></select>
+        <button id="start-back" type="button"><span data-i18n="editing.startBack">Start −</span></button>
+        <button id="start-forward" type="button"><span data-i18n="editing.startForward">Start +</span></button>
+        <button id="end-back" type="button"><span data-i18n="editing.endBack">End −</span></button>
+        <button id="end-forward" type="button"><span data-i18n="editing.endForward">End +</span></button>
+      </div>
+      <p class="hint"><span data-i18n="editing.instructions">Drag the blue boundary handles to fine-tune the selection. Drag to select a range. Shift-click sets the end. Click the ruler to seek. Adjust boundaries with the step controls. Loop repeats the selected range. Auto-scroll follows playback.</span></p>
+      <div class="controls editing-controls">
+        <label for="format"><span data-i18n="editing.outputFormat">Output format</span></label>
+        <select id="format">
+          <option>mp3</option><option>wav</option><option>flac</option>
+          <option>ogg</option><option>opus</option><option>m4a</option>
+        </select>
+        <button id="trim" class="button-secondary" type="button"><span data-i18n="editing.trim">Trim selection</span></button>
+        <button id="remove-selection" class="button-danger" type="button"><span data-i18n="editing.remove">Remove selection</span></button>
+        <label for="crossfade-ms"><span data-i18n="editing.crossfade">Crossfade (ms)</span></label>
+        <select id="crossfade-ms"><option value="0" data-i18n="editing.off">Off</option><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option></select>
+        <button id="convert" class="button-primary" type="button"><span data-i18n="editing.convert">Convert full audio</span></button>
+      </div>
+      <p class="hint"><span data-i18n="shortcuts.help">Shortcuts: Space play/pause, P play selection, L toggle loop, Left/Right seek 1 s, Shift+Left/Right seek 0.1 s, [ / ] adjust start, Shift+[ / ] adjust end, + / - zoom, Ctrl+Z undo, Ctrl+Y redo, ? show shortcuts.</span></p>
+      <section class="feature-panel panel">
+        <h2><span data-i18n="effects.heading">Volume and fades</span></h2>
+        <div class="controls">
+          <label for="volume-db"><span data-i18n="effects.volume">Volume (dB)</span></label>
+          <input id="volume-db" type="number" min="-40" max="20" step="0.5" value="0">
+          <label for="fade-in"><span data-i18n="effects.fadeIn">Fade in (seconds)</span></label>
+          <input id="fade-in" type="number" min="0" max="3600" step="0.1" value="0">
+          <label for="fade-out"><span data-i18n="effects.fadeOut">Fade out (seconds)</span></label>
+          <input id="fade-out" type="number" min="0" max="3600" step="0.1" value="0">
+          <button id="apply-effects" class="button-primary" type="button"><span data-i18n="effects.apply">Apply effects</span></button>
+        </div>
+      </section>
+      <section class="feature-panel panel">
+        <h2><span data-i18n="merge.heading">Merge audio</span></h2>
+        <p class="hint"><span data-i18n="merge.instructions">The current audio is first. Add up to 9 more audio files in the order to merge.</span></p>
+        <label for="merge-files"><span data-i18n="merge.additional">Additional audio files</span></label>
+        <input id="merge-files" type="file" accept="audio/*" multiple>
+        <ol id="merge-list"></ol>
+        <button id="merge" class="button-primary" type="button"><span data-i18n="merge.submit">Merge files</span></button>
+      </section>
+    </section>
+    <div id="progress-panel" class="progress-panel" role="status" aria-live="polite" hidden><span id="progress-label"><span data-i18n="jobs.preparing">Preparing audio...</span></span><progress id="progress" max="100" value="0"></progress></div>
+    <p id="status" role="status" aria-live="polite"></p>
+    <div id="job-controls" class="job-controls" hidden>
+      <button id="cancel-job" class="button-danger" type="button"><span data-i18n="jobs.cancel">Cancel processing</span></button>
+      <span id="job-state"></span>
+    </div>
+    <section id="result-panel" class="feature-panel panel" hidden>
+      <h2><span data-i18n="results.heading">Processed audio preview</span></h2>
+      <audio id="result-preview" controls preload="metadata"></audio>
+      <a id="download" hidden><span data-i18n="results.download">Download processed audio</span></a>
+      <button id="reuse-result" class="button-secondary" type="button" hidden><span data-i18n="results.edit">Edit this result</span></button>
+    </section>
+    <section id="history-panel" class="feature-panel panel" hidden>
+      <h2><span data-i18n="history.heading">Recent results</span></h2>
+      <p class="hint"><span data-i18n="history.instructions">Results remain available until their files expire. History is stored in this browser tab.</span></p>
+      <ol id="history-list"></ol>
+      <button id="clear-history" class="button-danger" type="button"><span data-i18n="history.clear">Clear history</span></button>
+    </section>
+  </main>
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" data-i18n-aria-label="accessibility.backToTop" hidden>
+    <span class="back-to-top-icon" aria-hidden="true">↑</span>
+    <span>TOP</span>
+  </button>
+</body>
+</html>

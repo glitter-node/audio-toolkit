@@ -1,0 +1,183 @@
+{
+  "app": {
+    "description": "Self-hosted audio editing, merging and conversion.",
+    "theme": "Theme",
+    "language": "Language",
+    "title": "Audio Toolkit"
+  },
+  "accessibility": {
+    "backToTop": "Back to top"
+  },
+  "theme": {
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "ko": "Korean",
+    "en": "English",
+    "ja": "Japanese",
+    "zhCN": "Simplified Chinese"
+  },
+  "upload": {
+    "audioFile": "Audio file",
+    "submit": "Upload and inspect",
+    "analyzing": "Uploading and analyzing audio...",
+    "uploading": "Uploading audio...",
+    "inspecting": "Inspecting audio...",
+    "ready": "Audio is ready. Drag across the waveform to select a range.",
+    "failed": "Upload failed",
+    "inspectionFailed": "Inspection failed",
+    "audioFailed": "Audio processing failed.",
+    "mergeUploading": "Uploading audio files for merging...",
+    "mergeItem": "Uploading audio {index} of {total}...",
+    "audioUploadFailed": "Audio upload failed",
+    "heading": "Audio upload"
+  },
+  "waveform": {
+    "editor": "Waveform editor",
+    "tools": "Waveform editing tools",
+    "canvas": "Audio waveform with time ruler, playhead and selected range",
+    "view": "View position",
+    "autoScroll": "Auto-scroll",
+    "playhead": "Playhead",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fit": "Fit all",
+    "tooLarge": "This file exceeds the 64 MB browser waveform limit. Use a smaller file or the API for processing.",
+    "reading": "Reading audio file...",
+    "decoding": "Decoding audio... This may take a while.",
+    "generating": "Generating waveform..."
+  },
+  "editing": {
+    "undo": "Undo",
+    "redo": "Redo",
+    "start": "Start (seconds)",
+    "end": "End (seconds)",
+    "step": "Step",
+    "boundaryTools": "Fine adjustment of selection boundaries",
+    "startBack": "Start −",
+    "startForward": "Start +",
+    "endBack": "End −",
+    "endForward": "End +",
+    "instructions": "Drag the blue boundary handles to adjust the selection. Drag to select a range. Shift-click sets the end. Click the ruler to seek. Step controls adjust boundaries. Loop repeats the range. Auto-scroll follows playback.",
+    "outputFormat": "Output format",
+    "trim": "Trim selection",
+    "remove": "Remove selection",
+    "crossfade": "Crossfade (ms)",
+    "off": "Off",
+    "convert": "Convert full audio",
+    "restored": "Editor state restored.",
+    "selectRange": "Select a non-empty audio range.",
+    "selectRemoval": "Select a non-empty range smaller than the full audio."
+  },
+  "playback": {
+    "playSelection": "Play selection",
+    "loop": "Loop selection",
+    "unavailable": "Unable to play the selected audio.",
+    "failed": "Playback unavailable."
+  },
+  "effects": {
+    "heading": "Volume and fades",
+    "volume": "Volume (dB)",
+    "fadeIn": "Fade in (seconds)",
+    "fadeOut": "Fade out (seconds)",
+    "apply": "Apply effects",
+    "invalid": "Invalid volume or fade settings."
+  },
+  "merge": {
+    "heading": "Merge audio",
+    "instructions": "The current audio is first. Add up to 9 more files in merge order.",
+    "additional": "Additional audio files",
+    "submit": "Merge files",
+    "selectFiles": "Select between 1 and 9 additional audio files.",
+    "failed": "Audio merging failed."
+  },
+  "jobs": {
+    "preparing": "Preparing audio...",
+    "cancel": "Cancel processing",
+    "queued": "Queued",
+    "running": "Running",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "failed": "Failed",
+    "processing": "Processing audio",
+    "submitting": "Submitting audio job...",
+    "startFailed": "Unable to start job",
+    "completeNotice": "Audio processing completed. Preview the result before downloading.",
+    "statusUnavailable": "Job status unavailable",
+    "connectionInterrupted": "Connection interrupted. Check job status before retrying.",
+    "timeout": "Audio processing timed out",
+    "encoderUnavailable": "Requested audio encoder is unavailable",
+    "processingFailed": "Audio processing failed",
+    "codecFailed": "Audio processing failed; check input codec and output format",
+    "operationConvert": "Convert",
+    "operationTrim": "Trim",
+    "operationRemove": "Remove",
+    "operationEffects": "Effects",
+    "operationMerge": "Merge"
+  },
+  "results": {
+    "heading": "Processed audio preview",
+    "download": "Download processed audio",
+    "edit": "Edit this result",
+    "wait": "Wait for the current job to finish.",
+    "invalidReference": "Invalid result reference.",
+    "loading": "Loading result into the editor...",
+    "preparing": "Preparing result for editing...",
+    "reuseFailed": "Unable to reuse result",
+    "unavailable": "Result audio is unavailable",
+    "loaded": "Result loaded. You can continue editing."
+  },
+  "history": {
+    "heading": "Recent results",
+    "instructions": "Results remain available until their files expire. History is stored in this browser tab.",
+    "clear": "Clear history",
+    "preview": "Preview",
+    "edit": "Edit",
+    "unavailable": "History storage is unavailable."
+  },
+  "shortcuts": {
+    "help": "Shortcuts: Space play/pause, P play selection, L loop, arrows seek, Shift+arrows fine seek, [ / ] adjust start, Shift+[ / ] adjust end, + / - zoom, Ctrl+Z undo, Ctrl+Y redo, ? help."
+  },
+  "errors": {
+    "unsupportedExtension": "Unsupported audio extension",
+    "uploadLimit": "File exceeds upload limit",
+    "invalidAudio": "Unsupported or invalid audio file",
+    "expired": "Output not found or expired",
+    "queueFull": "Audio job queue is full",
+    "fileNotFound": "File not found",
+    "invalidFileId": "Invalid file identifier",
+    "invalidOutputId": "Invalid output identifier",
+    "invalidOutputFormat": "Invalid output format",
+    "outputNotFound": "Output not found",
+    "editSize": "Output exceeds editing size limit",
+    "trimRange": "Invalid trim range",
+    "trimExceeds": "Trim range exceeds audio duration",
+    "duration": "Unable to determine audio duration",
+    "fades": "Combined fades exceed audio duration",
+    "removal": "Removal must leave some audio",
+    "inspection": "Audio inspection failed",
+    "conversion": "Audio conversion failed",
+    "trimming": "Audio trimming failed",
+    "effects": "Audio effects processing failed",
+    "merging": "Audio merging failed",
+    "jobNotFound": "Job not found"
+  },
+  "metadata": {
+    "heading": "File information",
+    "format": "Format",
+    "duration": "Duration",
+    "bitrate": "Bitrate",
+    "sampleRate": "Sample rate",
+    "channels": "Channels",
+    "fileSize": "File size",
+    "rawDetails": "Technical details (JSON)",
+    "unknown": "Unavailable",
+    "seconds": "{value} s",
+    "kbps": "{value} kb/s",
+    "hz": "{value} Hz",
+    "channelCount": "{value} channels",
+    "megabytes": "{value} MB"
+  }
+}
